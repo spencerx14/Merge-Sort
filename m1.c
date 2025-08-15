@@ -1,9 +1,7 @@
 #include<stdio.h>
 #define MAX 20
 
-
-int lb, mid, ub;
-int merge(int a[], int lb, int mid, int ub){
+void merge(int a[], int lb, int mid, int ub){
     int i, j, k;
     i=lb;
     j=mid+1;
@@ -35,7 +33,8 @@ int merge(int a[], int lb, int mid, int ub){
         a[i] = b[i];
     }
 }
-int sort(int a[],int lb,int ub){
+void sort(int a[],int lb,int ub){
+    int mid;
     if(lb < ub){
         mid = (lb + ub) / 2;
         sort(a, lb, mid);

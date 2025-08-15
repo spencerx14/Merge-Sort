@@ -1,16 +1,5 @@
 #include<stdio.h>
-
-void sort(int a,int lb,int ub){
-    int mid;
-    if(lb < ub){
-        mid = (lb + ub) / 2;
-        sort(a, lb, mid);
-        sort(a, mid + 1, ub);
-        merge(a, lb, mid, ub);
-    }
-}
-
-int merge(int a[], int lb, int mid, int ub){
+void merge(int a[], int lb, int mid, int ub){
     int i, j, k;
     int n1 = mid - lb + 1;
     int n2 = ub - mid;
@@ -49,6 +38,17 @@ int merge(int a[], int lb, int mid, int ub){
         k++;
     }
 }
+void sort(int a[],int lb,int ub){
+    int mid;
+    if(lb < ub){
+        mid = (lb + ub) / 2;
+        sort(a, lb, mid);
+        sort(a, mid + 1, ub);
+        merge(a, lb, mid, ub);
+    }
+}
+
+
 int main(){
     int a[8],i;
     printf("Enter 8 elements:\n");
